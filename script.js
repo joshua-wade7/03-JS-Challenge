@@ -1,15 +1,126 @@
 // Assignment Code
-var chars = ["0123456789qwertyuiopasdfghjklzxcvbnm!@#$%^&*(){}:"];
 
+//Should this be an object instead?  containing a property for lowercase: uppercase: specialcharacters: numbers:?  And the give the values to each specific property?
+var chars = {
+  lower: [
+    "q",
+    "w",
+    "e",
+    "r",
+    "t",
+    "y",
+    "u",
+    "i",
+    "o",
+    "p",
+    "a",
+    "s",
+    "d",
+    "f",
+    "g",
+    "h",
+    "j",
+    "k",
+    "l",
+    "z",
+    "x",
+    "c",
+    "v",
+    "b",
+    "n",
+    "m",
+  ],
+  upper: [
+    "Q",
+    "W",
+    "E",
+    "R",
+    "T",
+    "Y",
+    "U",
+    "I",
+    "O",
+    "P",
+    "A",
+    "S",
+    "D",
+    "F",
+    "G",
+    "H",
+    "J",
+    "K",
+    "L",
+    "Z",
+    "X",
+    "C",
+    "V",
+    "B",
+    "N",
+    "M",
+  ],
+  numbers: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+  special: ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "{", "}", ":"],
+};
+
+//This is the Generate password button
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword(password);
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 }
 
+function generatePassword() {
+  var characterLength = prompt(
+    "Create password:  characterLength must be at least 8 characters "
+  );
+
+  if (characterLength < 8 || characterLength > 128) {
+    alert("Invalid Input");
+    return "Character Length Out of Bounds";
+  }
+
+  // if (characterLength > 128) {
+  //   alert("Yo this is whack");
+  //   return "Character characterLength Out of Bounds";
+  // }
+
+  var temp = [];
+
+  var containsLower = confirm(
+    "Would you like to include lowercase characters?"
+  );
+  var containsUpper = confirm("Would you like to include uppercase?");
+  var containsNumbers = confirm("Would you like to include numbers?");
+  var containsSpecial = confirm(
+    "Would you like to include special characters?"
+  );
+
+  if (containsLower) {
+    temp = temp.concat(chars.lower);
+  }
+  if (containsUpper) {
+    temp = temp.concat(chars.upper);
+  }
+  if (containsNumbers) {
+    temp = temp.concat(chars.length);
+  }
+  if (containsSpecial) {
+    temp = temp.concat(chars.special);
+  }
+
+  var pass = "";
+  for (i = 0; i < characterLength; i++) {
+    var randIndex = Math.floor(Math.random() * temp.length);
+    var randomCharacter = temp[randIndex];
+    pass += randomCharacter;
+    // console.log(pass);
+  }
+
+  return pass;
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

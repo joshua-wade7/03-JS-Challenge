@@ -16,3 +16,26 @@ prompt for what character types - list one example of each character types
 need a confirm message after each type of character to include has been executed, to state what they selected and then an 
 
 need alert message once the password is generated.
+
+
+
+
+create variable (containsNumbers)
+
+var containsNumbers = confirm("Would you like to include numbers?")
+
+create variable (containsSpecial)
+
+var containsSpecial = confirm("Would you like to include special characters?")
+
+create if statement (containsNumbers)
+
+if (containsNumbers) {
+    temp = temp.concat(chars.length);
+}
+if (containsSpecial) {
+    temp = temp.concat(chars.special);
+}
+
+
+
