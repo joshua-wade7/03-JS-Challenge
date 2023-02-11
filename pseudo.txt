@@ -1,0 +1,18 @@
+What are the requirements for this password generator?
+
+What do I need to track in the webpage?
+variables - length of the password (at least 8 characters but no more than 128), lowercase letters, uppercase letters, numeric values, special characters.
+
+the button needs to be functional, look into connecting the button in the html via js. 
+
+needs prompts for password criteria (ask what they mean by "password Criteria"? how is that different from )
+
+prompt for password criteria - password must include at least 1 number and 1 special character
+prompt for length - password must be 8 characters in length
+prompt for exceeding the length - password cannot be more than 128 characters
+prompt for what character types - list one example of each character types
+
+
+need a confirm message after each type of character to include has been executed, to state what they selected and then an 
+
+need alert message once the password is generated.
