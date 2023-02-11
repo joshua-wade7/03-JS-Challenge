@@ -1,6 +1,6 @@
 // Assignment Code
 
-//Should this be an object instead?  containing a property for lowercase: uppercase: specialcharacters: numbers:?  And the give the values to each specific property?
+//Should this be an object instead?  containing a property for lowercase: uppercase: specialcharacters: numbers:?  And then give the values to each specific property?
 var chars = {
   lower: [
     "q",
@@ -73,21 +73,19 @@ function writePassword() {
   passwordText.value = password;
 }
 
+//declaring a function for generatePassword()
 function generatePassword() {
   var characterLength = prompt(
-    "Create password:  characterLength must be at least 8 characters "
+    "Create password: character length must be at least 8 characters but no more than 128."
   );
 
+  // Need to use the || and not && because it is an "either or" statement.
   if (characterLength < 8 || characterLength > 128) {
     alert("Invalid Input");
     return "Character Length Out of Bounds";
   }
 
-  // if (characterLength > 128) {
-  //   alert("Yo this is whack");
-  //   return "Character characterLength Out of Bounds";
-  // }
-
+  //create a variable that will equal an array that will randomly pull from each of the properties of the 'chars' object.
   var temp = [];
 
   var containsLower = confirm(
@@ -106,7 +104,7 @@ function generatePassword() {
     temp = temp.concat(chars.upper);
   }
   if (containsNumbers) {
-    temp = temp.concat(chars.length);
+    temp = temp.concat(chars.numbers);
   }
   if (containsSpecial) {
     temp = temp.concat(chars.special);
@@ -122,5 +120,6 @@ function generatePassword() {
 
   return pass;
 }
+// writePassword();
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
