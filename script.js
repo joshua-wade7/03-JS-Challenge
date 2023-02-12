@@ -110,16 +110,15 @@ function generatePassword() {
     temp = temp.concat(chars.special);
   }
 
+  // "" is saying we're making the variable 'pass' equal to a string.  This way the password that will be generated will be a string of characters.
   var pass = "";
   for (i = 0; i < characterLength; i++) {
     var randIndex = Math.floor(Math.random() * temp.length);
     var randomCharacter = temp[randIndex];
+    // += is establishing that once the variable 'pass' is returned, it returns one character at a time in the string.
     pass += randomCharacter;
-    // console.log(pass);
   }
-
   return pass;
 }
-// writePassword();
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

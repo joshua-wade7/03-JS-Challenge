@@ -3,22 +3,25 @@ What are the requirements for this password generator?
 What do I need to track in the webpage?
 variables - length of the password (at least 8 characters but no more than 128), lowercase letters, uppercase letters, numeric values, special characters.
 
-the button needs to be functional, look into connecting the button in the html via js. 
+the button needs to be functional, look into connecting the button in the html via js?
+Button is already connected, just needed to provide properties for it to generate. 
 
 needs prompts for password criteria (ask what they mean by "password Criteria"? how is that different from )
 
-prompt for password criteria - password must include at least 1 number and 1 special character
-prompt for length - password must be 8 characters in length
-prompt for exceeding the length - password cannot be more than 128 characters
-prompt for what character types - list one example of each character types
+prompt for password criteria - password must include at least 8 characters and no more than 128 character
+prompt for exceeding the length - password cannot be more than 128 characters - invalid input
+confirm for - lowercase, uppercase, special, number
 
-
-need a confirm message after each type of character to include has been executed, to state what they selected and then an 
 
 need alert message once the password is generated.
 
+create variable (containsLower);
 
+var containsLower = confirm ("Would you like to include lowercase characters?");
 
+create variable (containsUpper);
+
+var containsUpper = confirm("Would you like to include uppercase characters?");
 
 create variable (containsNumbers)
 
@@ -28,10 +31,16 @@ create variable (containsSpecial)
 
 var containsSpecial = confirm("Would you like to include special characters?")
 
-create if statement (containsNumbers)
+create if statements 
 
+if (containsLower) {
+    temp = temp.concat(chars.lower);
+}
+if (conatinsUpper) {
+    temp = temp.concat(chars.upper);
+}
 if (containsNumbers) {
-    temp = temp.concat(chars.length);
+    temp = temp.concat(chars.numbers);
 }
 if (containsSpecial) {
     temp = temp.concat(chars.special);
