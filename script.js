@@ -97,6 +97,8 @@ function generatePassword() {
     "Would you like to include special characters?"
   );
 
+  // I know I need to add a variable for if the user does not select any of the criteria for the page to return them to the start, but how to do that is unfortunately eluding me.
+
   if (containsLower) {
     temp = temp.concat(chars.lower);
   }
